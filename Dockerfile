@@ -1,8 +1,11 @@
 FROM mattsch/fedora-rpmfusion:22
 MAINTAINER Matthew Schick <matthew.schick@gmail.com>
 
+COPY tpokorra-mono-fedora-21.repo /etc/yum.repos.d/tpokorra-mono-fedora-21.repo
+
 # Install required packages
-RUN dnf install -yq procps-ng \
+RUN dnf install -yq mono-core \
+                    procps-ng \
                     tar \
                     unrar && \
     dnf clean all
@@ -14,7 +17,7 @@ ENV LUID=1000 LGID=1000 NZBGET_VER=16.0
 # Create the sonarr user/group
 RUN groupadd -g $LGID sonarr && \
     useradd -c 'Sonarr User' -s /bin/bash -m -d /opt/sonarr -g $LGID -u $LUID sonarr
-    
+
 # Grab the installer, do the thing
 RUN cd /tmp && \
     curl -qOL http://download.sonarr.tv/v2/master/mono/NzbDrone.master.tar.gz && \

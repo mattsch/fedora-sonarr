@@ -4,7 +4,8 @@ MAINTAINER Matthew Schick <matthew.schick@gmail.com>
 COPY tpokorra-mono-fedora.repo /etc/yum.repos.d/tpokorra-mono-fedora.repo
 
 # Install required packages
-RUN dnf install -yq mono-core \
+RUN dnf install -yq mediainfo \
+                    mono-core \
                     procps-ng \
                     tar \
                     unrar && \
@@ -30,7 +31,7 @@ VOLUME /config /storage
 EXPOSE 6789
 
 # Add script to copy default config if one isn't there and start sonarr
-COPY run-sonarr.sh /bin/run-sonarr.sh
+COPY run-sonarr.sh update-sonarr.sh /bin/
  
 # Run our script
 CMD ["/bin/run-sonarr.sh"]

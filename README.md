@@ -1,6 +1,8 @@
 # Fedora Sonarr Docker Container
 
 Docker container for [Sonarr](https://sonarr.tv/) using Fedora.
+This uses the update script from [tuxeh](https://github.com/tuxeh/docker-sonarr)
+so you'll need to adjust the update settings to use `/bin/update-sonarr.sh`.
 
 ## Usage
 

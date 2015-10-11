@@ -14,4 +14,4 @@ chown -R sonarr:sonarr /config/ /opt/NzbDrone
 
 export XDG_CONFIG_HOME="/config/sonarr"
 
-exec runuser -l sonarr -c '/usr/bin/mono /opt/NzbDrone/NzbDrone.exe -nobrowser'
+exec runuser -l sonarr -c '/usr/bin/mono /opt/NzbDrone/NzbDrone.exe -nobrowser -data=/config/sonarr'

@@ -12,7 +12,7 @@ RUN dnf install -yq mono-core \
 
 # Set uid/gid (override with the '-e' flag), 1000/1000 used since it's the
 # default first uid/gid on a fresh Fedora install
-ENV LUID=1000 LGID=1000 NZBGET_VER=16.0
+ENV LUID=1000 LGID=1000
 
 # Create the sonarr user/group
 RUN groupadd -g $LGID sonarr && \
@@ -21,7 +21,7 @@ RUN groupadd -g $LGID sonarr && \
 # Grab the installer, do the thing
 RUN cd /tmp && \
     curl -qOL http://download.sonarr.tv/v2/master/mono/NzbDrone.master.tar.gz && \
-    tar -xvf NzbDrone.master.tar.gz -C /opt/ && \
+    tar -xf NzbDrone.master.tar.gz -C /opt/ && \
     rm ./NzbDrone.master.tar.gz && \
     chown -R sonarr:sonarr /opt/NzbDrone
 

@@ -12,4 +12,4 @@ fi
 # Set permissions
 chown -R sonarr:sonarr /config/ /opt/NzbDrone
 
-exec runuser -l sonarr -c '/usr/bin/mono /opt/NzbDrone/app/NzbDrone.exe -nobrowser
+exec runuser -l sonarr -c '/usr/bin/mono /opt/NzbDrone/app/NzbDrone.exe -nobrowser'

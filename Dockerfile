@@ -1,7 +1,7 @@
 FROM mattsch/fedora-rpmfusion:22
 MAINTAINER Matthew Schick <matthew.schick@gmail.com>
 
-COPY tpokorra-mono-fedora-21.repo /etc/yum.repos.d/tpokorra-mono-fedora-21.repo
+COPY tpokorra-mono-fedora.repo /etc/yum.repos.d/tpokorra-mono-fedora.repo
 
 # Install required packages
 RUN dnf install -yq mono-core \

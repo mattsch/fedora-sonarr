@@ -36,4 +36,3 @@ COPY run-sonarr.sh update-sonarr.sh /bin/
 # Run our script
 CMD ["/bin/run-sonarr.sh"]
 
-

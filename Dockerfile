@@ -28,7 +28,7 @@ RUN cd /tmp && \
 
 # Need a config and storage volume, expose proper port
 VOLUME /config /storage
-EXPOSE 6789
+EXPOSE 8989
 
 # Add script to copy default config if one isn't there and start sonarr
 COPY run-sonarr.sh update-sonarr.sh /bin/

@@ -1,8 +1,6 @@
 FROM mattsch/fedora-rpmfusion:26
 MAINTAINER Matthew Schick <matthew.schick@gmail.com>
 
-COPY tpokorra-mono-fedora.repo /etc/yum.repos.d/tpokorra-mono-fedora.repo
-
 # Run updates
 RUN dnf upgrade -yq && \
     dnf clean all
@@ -25,7 +23,7 @@ RUN groupadd -g $LGID sonarr && \
 
 # Grab the installer, do the thing
 RUN cd /tmp && \
-    curl -qOL http://download.sonarr.tv/v2/master/mono/NzbDrone.master.tar.gz && \
+    curl -qsSOL http://download.sonarr.tv/v2/master/mono/NzbDrone.master.tar.gz && \
     tar -xf NzbDrone.master.tar.gz -C /opt/ && \
     rm ./NzbDrone.master.tar.gz && \
     chown -R sonarr:sonarr /opt/NzbDrone

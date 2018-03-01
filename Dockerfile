@@ -9,6 +9,7 @@ RUN dnf upgrade -yq && \
 RUN dnf install -yq mediainfo \
                     mono-core \
                     procps-ng \
+                    shadow-utils \
                     tar \
                     unrar && \
     dnf clean all

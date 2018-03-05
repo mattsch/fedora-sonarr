@@ -1,5 +1,6 @@
-FROM mattsch/fedora-rpmfusion:latest
+FROM mattsch/fedora-rpmfusion:27
 MAINTAINER Matthew Schick <matthew.schick@gmail.com>
+ARG upstream_tag=2.0.0.5153
 
 # Run updates
 RUN dnf upgrade -yq && \
@@ -23,10 +24,10 @@ RUN groupadd -g $LGID sonarr && \
     useradd -c 'Sonarr User' -s /bin/bash -m -d /opt/sonarr -g $LGID -u $LUID sonarr
 
 # Grab the installer, do the thing
-RUN cd /tmp && \
-    curl -qsSOL http://download.sonarr.tv/v2/master/mono/NzbDrone.master.tar.gz && \
-    tar -xf NzbDrone.master.tar.gz -C /opt/ && \
-    rm ./NzbDrone.master.tar.gz && \
+RUN cd /opt && \
+    curl -sL -o - \
+        http://download.sonarr.tv/v2/master/mono/NzbDrone.master.${upstream_tag}.mono.tar.gz \
+        | tar xzf - && \
     chown -R sonarr:sonarr /opt/NzbDrone
 
 # Need a config and storage volume, expose proper port
@@ -35,7 +36,7 @@ EXPOSE 8989
 
 # Add script to copy default config if one isn't there and start sonarr
 COPY run-sonarr.sh update-sonarr.sh /bin/
- 
+
 # Run our script
 CMD ["/bin/run-sonarr.sh"]
 

@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/mattsch/fedora-sonarr.svg?branch=master)](https://travis-ci.org/mattsch/fedora-sonarr)
 # Fedora Sonarr Docker Container
 
 Docker container for [Sonarr](https://sonarr.tv/) using Fedora.
@@ -25,8 +26,7 @@ docker create -v /path/to/config/dir:/config \
     -p 8989:8989 --name=sonarr mattsch/fedora-sonarr
 ```
 
-Using host networking rather than the port forwards above will give the best
-performance.  However, this allows the container to have full access to the
-host's networking stack.  Be sure you understand the implications before using
-it.
+## Tags
 
+Tags should follow upstream releases (including prereleases) and latest should
+be the latest built.

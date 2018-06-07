@@ -9,9 +9,9 @@ env:
   - VER="2.0.0.5163"
 
 script:
-  - 'docker login -u "$D_U" -p "$D_P"'
-  - 'docker build --build-arg upstream_tag=${VER} -t ${IMG_NAME}:${VER} -t ${IMG_NAME}:latest .'
-  - 'docker push ${IMG_NAME}:${VER}'
-  - 'docker push ${IMG_NAME}:latest'
+- 'docker login -u "$D_U" -p "$D_P"'
+- 'docker build --build-arg upstream_tag=${VER} -t ${IMG_NAME}:${VER} -t ${IMG_NAME}:latest .'
+- 'docker push ${IMG_NAME}:${VER}'
+- 'docker push ${IMG_NAME}:latest'
 
 if: branch = master

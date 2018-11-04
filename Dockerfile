@@ -1,6 +1,6 @@
-FROM mattsch/fedora-rpmfusion:28
+FROM mattsch/fedora-rpmfusion:29
 LABEL maintainer="Matthew Schick <matthew.schick@gmail.com>"
-ARG upstream_tag=2.0.0.5153
+ARG upstream_tag=2.0.0.5252
 
 # Run updates
 RUN dnf upgrade -yq && \
